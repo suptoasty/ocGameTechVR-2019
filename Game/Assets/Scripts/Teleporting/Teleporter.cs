@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class Teleporter : MonoBehaviour
 {
-
     static public float heightCovered = 0.6F;
     Camera cam;
     CharacterController controller;
