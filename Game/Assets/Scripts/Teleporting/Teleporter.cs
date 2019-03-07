@@ -64,6 +64,10 @@ public class Teleporter : MonoBehaviour
         if(Physics.Raycast(topRay, out topHit, maxDistance))
         {
             Vector3 point = new Vector3(topHit.point.x, topHit.point.y, topHit.point.z);
+            float topDist = Math.Abs(Vector3.Distance(viewPos, point));
+
+            float bottomDist = Math.Abs(Vector3.Distance(viewPos, teleportLoc));
+
             if (teleportLoc.x != float.PositiveInfinity)
             {
                 if (Math.Abs(Vector3.Distance(viewPos, point)) < Math.Abs(Vector3.Distance(viewPos, teleportLoc)))
