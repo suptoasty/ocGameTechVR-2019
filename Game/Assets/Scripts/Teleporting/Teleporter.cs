@@ -9,16 +9,19 @@ public class Teleporter : MonoBehaviour
     static public float heightCovered = 0.6F;
     Camera cam;
     CharacterController controller;
-    LineRenderer renderer;
+    GameObject sphere;
+    Transform sphereTransform;
 
     // Start is called before the first frame update
     void Start()
     {
+        sphere = GameObject.FindWithTag("Sphere");
+        if (sphere != null)
+        {
+            sphereTransform = sphere.GetComponent<Transform>();
+        }
         cam = GetComponentInChildren<Camera>();
         controller = GetComponent<CharacterController>();
-        renderer = GetComponent<LineRenderer>();
-        renderer.widthMultiplier = 0.2f;
-        renderer.positionCount = 3;
     }
 
     //returns the coordinates of the reticule teleport location
@@ -44,13 +47,16 @@ public class Teleporter : MonoBehaviour
         RaycastHit bottomHit;
         RaycastHit topHit;
         Vector3 teleportLoc = new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity); //initialized to an impossible value
-        float heightDifference = (topY - fractionHeight) - bottomY;
-        renderer.positionCount = 3;
+        float heightDifference = viewPos.y - (topY - fractionHeight);
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Debugging");
+        }
+
         if (Physics.Raycast(bottomRay, out bottomHit, maxDistance))
         {
             Vector3 point = new Vector3(bottomHit.point.x, bottomHit.point.y, bottomHit.point.z);
-            renderer.SetPosition(0, bottomRayLoc);
-            renderer.SetPosition(1, point);
             point.y += heightDifference;
             teleportLoc = point;
             Debug.Log("Bottom");
@@ -63,8 +69,6 @@ public class Teleporter : MonoBehaviour
                 if (Math.Abs(Vector3.Distance(viewPos, point)) < Math.Abs(Vector3.Distance(viewPos, teleportLoc)))
                 {
                     teleportLoc = point;
-                    renderer.SetPosition(0, bottomRayLoc);
-                    renderer.SetPosition(1, point);
                     Debug.Log("Top");
                 }
             }
@@ -77,10 +81,8 @@ public class Teleporter : MonoBehaviour
             endPoint.y += direction.y * maxDistance;
             endPoint.z += direction.z * maxDistance;
             teleportLoc = endPoint;
-            renderer.SetPosition(0, bottomRayLoc);
-            renderer.SetPosition(1, endPoint);
         }
-        renderer.SetPosition(2, teleportLoc);
+        sphereTransform.position = teleportLoc;
         return teleportLoc;
     }
 
