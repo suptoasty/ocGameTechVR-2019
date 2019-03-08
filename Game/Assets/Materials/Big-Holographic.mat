@@ -43,12 +43,17 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_BEDF1529_Texture:
+        m_Texture: {fileID: 2800000, guid: ab201bfdbf84e70448bb3c1e2ee05320, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_127150C: 6
+    - Vector1_4AC31B08: 0.5
     - Vector1_6B4F8670: 2
     - Vector1_8BABDA19: 0.75
     - _AlphaClip: 0
