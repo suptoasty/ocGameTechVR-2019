@@ -41,6 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        private bool teleported;
 
         // Use this for initialization
         private void Start()
@@ -55,8 +56,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();*/
 			m_MouseLook.Init(transform , m_Camera.transform);
+            teleported = false;
         }
 
+        void Teleported()
+        {
+            teleported = true;
+        }
 
         // Update is called once per frame
         private void Update()
@@ -75,21 +81,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+            }*/
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
-                StartCoroutine(m_JumpBob.DoBobCycle());
-                PlayLandingSound();
+                //StartCoroutine(m_JumpBob.DoBobCycle());
+                //PlayLandingSound();
                 m_MoveDir.y = 0f;
-                m_Jumping = false;
+                //m_Jumping = false;
             }
-            if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
+            if (!m_CharacterController.isGrounded && /*!m_Jumping &&*/ m_PreviouslyGrounded)
             {
                 m_MoveDir.y = 0f;
             }
 
-            m_PreviouslyGrounded = m_CharacterController.isGrounded;*/
+            m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
 
@@ -115,28 +121,31 @@ namespace UnityStandardAssets.Characters.FirstPerson
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
             m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
+            m_MoveDir.z = desiredMove.z*speed;*/
 
 
             if (m_CharacterController.isGrounded)
             {
                 m_MoveDir.y = -m_StickToGroundForce;
 
-                if (m_Jump)
+                /*if (m_Jump)
                 {
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;
-                }
+                }*/
             }
             else
             {
                 m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
             }
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+            if (teleported)
+                teleported = false;
+            else
+                m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
-            ProgressStepCycle(speed);
+            /*ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
             */
             m_MouseLook.UpdateCursorLock();
