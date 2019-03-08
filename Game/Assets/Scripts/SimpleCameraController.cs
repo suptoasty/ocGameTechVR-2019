@@ -117,7 +117,7 @@ namespace UnityTemplateProjects
 				#endif
             }
 
-            /*// Hide and lock cursor when right mouse button pressed
+            // Hide and lock cursor when right mouse button pressed
             if (Input.GetMouseButtonDown(1))
             {
                 Cursor.lockState = CursorLockMode.Locked;
@@ -162,7 +162,7 @@ namespace UnityTemplateProjects
             var rotationLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / rotationLerpTime) * Time.deltaTime);
             m_InterpolatingCameraState.LerpTowards(m_TargetCameraState, positionLerpPct, rotationLerpPct);
 
-            m_InterpolatingCameraState.UpdateTransform(transform);*/
+            m_InterpolatingCameraState.UpdateTransform(transform);
         }
     }
 
