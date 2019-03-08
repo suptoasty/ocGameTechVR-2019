@@ -11,6 +11,7 @@ public class Teleporter : MonoBehaviour
     CharacterController controller;
     GameObject sphere;
     Transform sphereTransform;
+    private Camera m_Camera;
 
     // Start is called before the first frame update
     void Start()
@@ -49,11 +50,6 @@ public class Teleporter : MonoBehaviour
         Vector3 teleportLoc = new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity); //initialized to an impossible value
         float heightDifference = viewPos.y - (topY - fractionHeight);
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Debugging");
-        }
-
         if (Physics.Raycast(bottomRay, out bottomHit, maxDistance))
         {
             Vector3 point = new Vector3(bottomHit.point.x, bottomHit.point.y, bottomHit.point.z);
@@ -63,18 +59,15 @@ public class Teleporter : MonoBehaviour
         }
         if(Physics.Raycast(topRay, out topHit, maxDistance))
         {
+
             Vector3 point = new Vector3(topHit.point.x, topHit.point.y, topHit.point.z);
             float topDist = Math.Abs(Vector3.Distance(viewPos, point));
-
             float bottomDist = Math.Abs(Vector3.Distance(viewPos, teleportLoc));
 
-            if (teleportLoc.x != float.PositiveInfinity)
+            if (Math.Abs(Vector3.Distance(viewPos, point)) < Math.Abs(Vector3.Distance(viewPos, teleportLoc)))
             {
-                if (Math.Abs(Vector3.Distance(viewPos, point)) < Math.Abs(Vector3.Distance(viewPos, teleportLoc)))
-                {
-                    teleportLoc = point;
-                    Debug.Log("Top");
-                }
+                teleportLoc = point;
+                Debug.Log("Top");
             }
         }
         if (teleportLoc.x == float.PositiveInfinity)
@@ -95,6 +88,10 @@ public class Teleporter : MonoBehaviour
     {
         Ray cameraRay = cam.ScreenPointToRay(new Vector3(cam.pixelWidth /2, cam.pixelHeight / 2, 0));
         Vector3 cameraDirection = cameraRay.direction;
-        teleport(20F, controller, cameraDirection, cam.transform.position);
+        Vector3 teleportLoc = teleport(20F, controller, cameraDirection, cam.transform.position);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            this.transform.position = teleportLoc;
+        }
     }
 }
