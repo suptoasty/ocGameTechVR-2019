@@ -91,6 +91,7 @@ public class Teleporter : MonoBehaviour
         Vector3 teleportLoc = teleport(20F, controller, cameraDirection, cam.transform.position);
         if (Input.GetKeyDown(KeyCode.E))
         {
+            this.SendMessage("Teleported");
             this.transform.position = teleportLoc;
         }
     }
