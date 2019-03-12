@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2488642056046837429}
   - component: {fileID: 3860877901865837618}
   - component: {fileID: 5101765913692656436}
+  - component: {fileID: 4157343056461032722}
   m_Layer: 9
   m_Name: crossbow
   m_TagString: Untagged
@@ -150,6 +151,18 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
   m_materialColorField: 
+--- !u!114 &4157343056461032722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860877901865837628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079f0fd279e8a4748a489af155924f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4554993544495037862
 GameObject:
   m_ObjectHideFlags: 0
