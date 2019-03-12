@@ -27,7 +27,7 @@ public class crossbow : MonoBehaviour
     public void shoot() {
         RaycastHit hit;
         if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, distance)) {
-            Debug.log(hit.transform.name); //name of object hit
+            Debug.Log(hit.transform.name); //name of object hit
         }
 
     }
