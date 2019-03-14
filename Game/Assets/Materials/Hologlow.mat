@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: holographic_mat 1
+  m_Name: Hologlow
   m_Shader: {fileID: 4800000, guid: 573d53f386afb1f41ba5ceabc12560e6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,11 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_B9729FDF:
-        m_Texture: {fileID: 2800000, guid: 7bae9f3d8fb74334ba3889f53fe7eea0, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_C69EB180:
-        m_Texture: {fileID: 2800000, guid: e5c37ab0c7b37af4f981195d3caaf4b4, type: 3}
+        m_Texture: {fileID: 2800000, guid: af97b2cf461d4c44ab2cc6608bd82222, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -51,37 +47,15 @@ Material:
         m_Texture: {fileID: 2800000, guid: ab201bfdbf84e70448bb3c1e2ee05320, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_72715EE4_Texture:
-        m_Texture: {fileID: 2800000, guid: ca084ebab0cef7c4ba746cdb442f9c1e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_BEDF1529_Texture:
-        m_Texture: {fileID: 2800000, guid: ab201bfdbf84e70448bb3c1e2ee05320, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_C873BFA4_Texture:
-        m_Texture: {fileID: 2800000, guid: 2de0d72a6700bd94ea57111b29e246fc, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_CDBC38BA_Texture:
-        m_Texture: {fileID: 2800000, guid: 5e98de278b2ccc14f89b76b85596a3f3, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_D6BD25ED_Texture:
-        m_Texture: {fileID: 2800000, guid: ac80c335ebd6dde4fa54a82050064545, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_127150C: 5
-    - Vector1_2EE2CB80: 0.1
-    - Vector1_4AC31B08: 2
-    - Vector1_4E7DE436: 2
-    - Vector1_6B4F8670: 3
-    - Vector1_8BABDA19: 1
+    - Vector1_127150C: 6
+    - Vector1_4E7DE436: 8
+    - Vector1_6B4F8670: 2
+    - Vector1_8BABDA19: 0.75
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -101,13 +75,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_23C9B10D: {r: 0.04561229, g: 0.14495295, b: 0.38679245, a: 0}
-    - Color_A2AAE5B5: {r: 0.11372546, g: 0.62745106, b: 0.8352941, a: 0}
-    - Color_ACDA92F6: {r: 0.6886792, g: 0, b: 0.15862314, a: 1}
-    - Color_B65A4A43: {r: 1, g: 1, b: 1, a: 0}
-    - Vector2_1DC2A0F0: {r: 0, g: 1, b: 0, a: 0}
-    - Vector2_C848BFFB: {r: 0.25, g: 0.25, b: 0, a: 0}
-    - Vector2_E6136096: {r: 0, g: 3, b: 0, a: 0}
+    - Color_ACDA92F6: {r: 0, g: 0.9574471, b: 1, a: 1}
+    - Color_B65A4A43: {r: 1, g: 0.523595, b: 0, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
