@@ -22,12 +22,22 @@ public class Teleporter : MonoBehaviour
             sphereTransform = sphere.GetComponent<Transform>();
         }
         cam = GetComponentInChildren<Camera>();
-        controller = GetComponent<CharacterController>();
+        controller = GetComponentInChildren<CharacterController>();
+
+        if (cam == null)
+        {
+            Debug.Log("No Camera");
+        }
+
+        if (controller == null)
+        {
+            Debug.Log("No Controller");
+        }
     }
 
     //returns the coordinates of the reticule teleport location
     //NOTE: will not work to teleport above a ledge that the player cannot see
-    public Vector3 teleport(float maxDistance, CharacterController originalCollider, Vector3 direction, Vector3 viewPos)
+    public Vector3 teleport(float maxDistance, CharacterController originalCollider, Vector3 direction, Vector3 handPos)
     {
         //set the top to the top of the caller's capsule collider
         float topY = originalCollider.bounds.center.y + originalCollider.height / 2;
@@ -40,7 +50,7 @@ public class Teleporter : MonoBehaviour
 
         //set the origins of the top and bottom rays. set their direction to be the same
         Vector3 bottomRayLoc = new Vector3(originalCollider.bounds.center.x, topY - fractionHeight, originalCollider.bounds.center.z);
-        Vector3 topRayLoc = new Vector3(originalCollider.bounds.center.x, viewPos.y, originalCollider.bounds.center.z);
+        Vector3 topRayLoc = new Vector3(originalCollider.bounds.center.x, handPos.y, originalCollider.bounds.center.z);
         Ray bottomRay = new Ray(bottomRayLoc, direction);
         Ray topRay = new Ray(topRayLoc, direction);
 
@@ -48,32 +58,30 @@ public class Teleporter : MonoBehaviour
         RaycastHit bottomHit;
         RaycastHit topHit;
         Vector3 teleportLoc = new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity); //initialized to an impossible value
-        float heightDifference = viewPos.y - (topY - fractionHeight);
+        float heightDifference = handPos.y - (topY - fractionHeight);
 
         if (Physics.Raycast(bottomRay, out bottomHit, maxDistance))
         {
             Vector3 point = new Vector3(bottomHit.point.x, bottomHit.point.y, bottomHit.point.z);
             point.y += heightDifference;
             teleportLoc = point;
-            Debug.Log("Bottom");
         }
         if(Physics.Raycast(topRay, out topHit, maxDistance))
         {
 
             Vector3 point = new Vector3(topHit.point.x, topHit.point.y, topHit.point.z);
-            float topDist = Math.Abs(Vector3.Distance(viewPos, point));
-            float bottomDist = Math.Abs(Vector3.Distance(viewPos, teleportLoc));
+            float topDist = Math.Abs(Vector3.Distance(handPos, point));
+            float bottomDist = Math.Abs(Vector3.Distance(handPos, teleportLoc));
 
-            if (Math.Abs(Vector3.Distance(viewPos, point)) < Math.Abs(Vector3.Distance(viewPos, teleportLoc)))
+            if (Math.Abs(Vector3.Distance(handPos, point)) < Math.Abs(Vector3.Distance(handPos, teleportLoc)))
             {
                 teleportLoc = point;
-                Debug.Log("Top");
             }
         }
         if (teleportLoc.x == float.PositiveInfinity)
         {
-            Vector3 origin = new Vector3(viewPos.x, viewPos.y, viewPos.z);
-            Vector3 endPoint = new Vector3(viewPos.x, viewPos.y, viewPos.z);
+            Vector3 origin = new Vector3(handPos.x, handPos.y, handPos.z);
+            Vector3 endPoint = new Vector3(handPos.x, handPos.y, handPos.z);
             endPoint.x += direction.x * maxDistance;
             endPoint.y += direction.y * maxDistance;
             endPoint.z += direction.z * maxDistance;
@@ -89,9 +97,12 @@ public class Teleporter : MonoBehaviour
         Ray cameraRay = cam.ScreenPointToRay(new Vector3(cam.pixelWidth /2, cam.pixelHeight / 2, 0));
         Vector3 cameraDirection = cameraRay.direction;
         Vector3 teleportLoc = teleport(20F, controller, cameraDirection, cam.transform.position);
+
+        
+
         if (Input.GetKeyDown(KeyCode.E))
         {
-            this.SendMessage("Teleported");
+            //this.SendMessage("Teleported");
             this.transform.position = teleportLoc;
         }
     }
