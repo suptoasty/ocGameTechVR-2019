@@ -11,6 +11,8 @@ public class Teleporter : MonoBehaviour
     CharacterController controller;
     GameObject sphere;
     Transform sphereTransform;
+    Component[] childrenComponents;
+    Transform handTransform;
     private Camera m_Camera;
 
     // Start is called before the first frame update
@@ -23,6 +25,20 @@ public class Teleporter : MonoBehaviour
         }
         cam = GetComponentInChildren<Camera>();
         controller = GetComponentInChildren<CharacterController>();
+        childrenComponents = GetComponentsInChildren(typeof(Component));
+
+        foreach (Component t in childrenComponents)
+        {
+            if (t.name == ("RightControllerAnchor"))
+            {
+                handTransform = t.transform;
+            }
+        }
+
+        if (handTransform == null)
+        {
+            Debug.Log("No right hand anchor");
+        }
 
         if (cam == null)
         {
@@ -94,16 +110,19 @@ public class Teleporter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray cameraRay = cam.ScreenPointToRay(new Vector3(cam.pixelWidth /2, cam.pixelHeight / 2, 0));
-        Vector3 cameraDirection = cameraRay.direction;
-        Vector3 teleportLoc = teleport(20F, controller, cameraDirection, cam.transform.position);
+        //Ray cameraRay = cam.ScreenPointToRay(new Vector3(cam.pixelWidth /2, cam.pixelHeight / 2, 0));
+        //Vector3 cameraDirection = cameraRay.direction;
+        Vector3 handDirection = handTransform.position;
+        Vector3 handPosition = handTransform.eulerAngles;
+
+        Vector3 teleportLoc = teleport(20F, controller, handDirection, handPosition);
 
         
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             //this.SendMessage("Teleported");
-            this.transform.position = teleportLoc;
+            //this.transform.position = teleportLoc;
         }
     }
 }
