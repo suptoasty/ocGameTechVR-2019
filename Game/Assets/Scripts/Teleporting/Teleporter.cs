@@ -29,7 +29,7 @@ public class Teleporter : MonoBehaviour
 
         foreach (Component t in childrenComponents)
         {
-            if (t.name == ("RightControllerAnchor"))
+            if (t.name == ("r_hand_skeletal_lowres"))
             {
                 handTransform = t.transform;
             }
@@ -37,7 +37,7 @@ public class Teleporter : MonoBehaviour
 
         if (handTransform == null)
         {
-            Debug.Log("No right hand anchor");
+            Debug.Log("No right hand transform");
         }
 
         if (cam == null)
@@ -103,7 +103,8 @@ public class Teleporter : MonoBehaviour
             endPoint.z += direction.z * maxDistance;
             teleportLoc = endPoint;
         }
-        sphereTransform.position = teleportLoc;
+        //sphereTransform.position = teleportLoc;
+        sphereTransform.position = handPos;
         return teleportLoc;
     }
 
