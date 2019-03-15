@@ -65,8 +65,8 @@ public class Teleporter : MonoBehaviour
         float fractionHeight = originalCollider.height * heightCovered;
 
         //set the origins of the top and bottom rays. set their direction to be the same
-        Vector3 bottomRayLoc = new Vector3(originalCollider.bounds.center.x, topY - fractionHeight, originalCollider.bounds.center.z);
-        Vector3 topRayLoc = new Vector3(originalCollider.bounds.center.x, handPos.y, originalCollider.bounds.center.z);
+        Vector3 bottomRayLoc = new Vector3(handPos.x, topY - fractionHeight, handPos.z);
+        Vector3 topRayLoc = new Vector3(handPos.x, handPos.y, handPos.z);
         Ray bottomRay = new Ray(bottomRayLoc, direction);
         Ray topRay = new Ray(topRayLoc, direction);
 
