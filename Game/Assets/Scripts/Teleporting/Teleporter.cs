@@ -103,8 +103,7 @@ public class Teleporter : MonoBehaviour
             endPoint.z += direction.z * maxDistance;
             teleportLoc = endPoint;
         }
-        //sphereTransform.position = teleportLoc;
-        sphereTransform.position = handPos;
+        sphereTransform.position = teleportLoc;
         return teleportLoc;
     }
 
@@ -113,10 +112,8 @@ public class Teleporter : MonoBehaviour
     {
         //Ray cameraRay = cam.ScreenPointToRay(new Vector3(cam.pixelWidth /2, cam.pixelHeight / 2, 0));
         //Vector3 cameraDirection = cameraRay.direction;
-        Vector3 handDirection = handTransform.position;
-        Vector3 handPosition = handTransform.eulerAngles;
 
-        Vector3 teleportLoc = teleport(20F, controller, handDirection, handPosition);
+        Vector3 teleportLoc = teleport(20F, controller, handTransform.forward, handTransform.position);
 
         
 
