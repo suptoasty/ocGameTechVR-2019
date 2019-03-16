@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.12827407, g: 0.07633896, b: 0.13713062, a: 1}
+  m_IndirectSpecularColor: {r: 0.1282741, g: 0.07633903, b: 0.13713068, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -282,22 +282,22 @@ PrefabInstance:
     - target: {fileID: 2488642056046837429, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2488642056046837429, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2488642056046837429, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2488642056046837429, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2488642056046837429, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
@@ -307,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 2488642056046837429, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2488642056046837429, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
@@ -384,6 +384,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.065577
       objectReference: {fileID: 0}
+    - target: {fileID: 3860877901865837618, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101765913692656436, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
+        type: 3}
+      propertyPath: m_snapOrientation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101765913692656436, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
+        type: 3}
+      propertyPath: m_snapPosition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4157343056461032722, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
       propertyPath: fpsCamera
@@ -395,27 +410,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2453603136477940049, guid: 8256eb50cb30c47468b1ac94adc794d9,
         type: 3}
-    - target: {fileID: 5101765913692656436, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
-        type: 3}
-      propertyPath: m_snapOrientation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5101765913692656436, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
-        type: 3}
-      propertyPath: m_snapPosition
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3860877901865837618, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
     - target: {fileID: 4783224904935956207, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
         type: 3}
       propertyPath: m_Name
       value: offset
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3277316762993392598, guid: 9e1323d1fd34ad64bb6ceb6081dd5889,
+        type: 3}
+      propertyPath: projectileLifeTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9e1323d1fd34ad64bb6ceb6081dd5889, type: 3}
 --- !u!1 &653260035
 GameObject:
@@ -575,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1256106481
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -880,6 +886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415653322712124716, guid: 398c08f5abaeab9438e1a8fa85b1a7a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2415653322712124723, guid: 398c08f5abaeab9438e1a8fa85b1a7a7,
         type: 3}
