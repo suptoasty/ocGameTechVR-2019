@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using OVR;
+using OculusSampleFramework;
 
 public class crossbow : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class crossbow : MonoBehaviour
     // public LineRenderer lineRenderer;
     public GameObject projectile;
     public float projectileLifeTime = 2.0f;
+    private DistanceGrabbable grabbableRef = GetComponent<DistanceGrabbable>() as DistanceGrabbable; //referenece to grabbable script component of crossbow
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class crossbow : MonoBehaviour
         {
             shoot();
         }
-        if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote))
+        if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote) && grabbableRef.isGrabbed == false)
         {
             if (OVRInput.GetDown(OVRInput.Touch.PrimaryIndexTrigger))
             {
