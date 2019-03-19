@@ -157,9 +157,10 @@ GameObject:
   - component: {fileID: 353827934}
   - component: {fileID: 353827933}
   - component: {fileID: 353827932}
+  - component: {fileID: 353827936}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,7 +173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353827930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.983, z: 2.21}
+  m_LocalPosition: {x: 0, y: 0.61, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 56078946}
@@ -252,6 +253,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353827930}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &353827936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353827930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d1fbcd18d5228478520153692d2635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_health: 3
+  death_particles: {fileID: 0}
+  death_delay_time: 1
 --- !u!1001 &427589860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -498,8 +514,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756018422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.00000023842, y: -0.61, z: 0.0000011921}
+  m_LocalScale: {x: 3.86721, y: 3.86721, z: 3.86721}
   m_Children: []
   m_Father: {fileID: 56078946}
   m_RootOrder: 0
