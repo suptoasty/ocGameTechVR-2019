@@ -7540,6 +7540,16 @@ PrefabInstance:
       propertyPath: CameraRig
       value: 
       objectReference: {fileID: 1657700701}
+    - target: {fileID: 3251328480530316566, guid: 5d4b45047f5b88c498713c41de73bb0f,
+        type: 3}
+      propertyPath: PlayerController
+      value: 
+      objectReference: {fileID: 2415653322515322218}
+    - target: {fileID: 3251328480530316566, guid: 5d4b45047f5b88c498713c41de73bb0f,
+        type: 3}
+      propertyPath: CharacterController
+      value: 
+      objectReference: {fileID: 2415653322515322219}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d4b45047f5b88c498713c41de73bb0f, type: 3}
 --- !u!4 &669840683775004539 stripped
