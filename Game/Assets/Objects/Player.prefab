@@ -105,8 +105,9 @@ MonoBehaviour:
   grabBegin: 0.55
   grabEnd: 0.35
   m_parentHeldObject: 0
-  m_gripTransform: {fileID: 0}
-  m_grabVolumes: []
+  m_gripTransform: {fileID: 2415653321740195824}
+  m_grabVolumes:
+  - {fileID: 147344986210585214}
   m_controller: 2
   m_parentTransform: {fileID: 1866615623}
   m_focusColor: {r: 0, g: 0, b: 0, a: 0}
@@ -225,8 +226,9 @@ MonoBehaviour:
   grabBegin: 0.55
   grabEnd: 0.35
   m_parentHeldObject: 0
-  m_gripTransform: {fileID: 0}
-  m_grabVolumes: []
+  m_gripTransform: {fileID: 2415653321821847281}
+  m_grabVolumes:
+  - {fileID: 5805282820514542561}
   m_controller: 1
   m_parentTransform: {fileID: 1866615623}
   m_focusColor: {r: 0, g: 0, b: 0, a: 0}

@@ -7,9 +7,9 @@ using UnityEngine.Events;
 public class Teleporter : MonoBehaviour
 {
     static public float heightCovered = 0.6F;
-    Camera cam;
-    CharacterController controller;
-    GameObject sphere;
+    public Camera cam;
+    public CharacterController controller;
+    public GameObject sphere;
     Transform sphereTransform;
     Component[] childrenComponents;
     Transform handTransform;
@@ -82,7 +82,7 @@ public class Teleporter : MonoBehaviour
             point.y += heightDifference;
             teleportLoc = point;
         }
-        if(Physics.Raycast(topRay, out topHit, maxDistance))
+        if (Physics.Raycast(topRay, out topHit, maxDistance))
         {
 
             Vector3 point = new Vector3(topHit.point.x, topHit.point.y, topHit.point.z);
@@ -115,7 +115,7 @@ public class Teleporter : MonoBehaviour
 
         Vector3 teleportLoc = teleport(20F, controller, handTransform.forward, handTransform.position);
 
-        
+
 
         if (Input.GetKeyDown(KeyCode.E))
         {

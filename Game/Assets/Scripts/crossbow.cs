@@ -16,6 +16,7 @@ public class crossbow : MonoBehaviour
     // public LineRenderer lineRenderer;
     public GameObject projectile;
     public float projectileLifeTime = 2.0f;
+    private LineRenderer line = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +46,7 @@ public class crossbow : MonoBehaviour
         {
             //a child is used for positions and rotations rather than the crossbow
             projectile.transform.localScale = transform.localScale; //scale projectiles to proportional size of the crossbow...still a little off 
-            projectile.transform.rotation = transform.GetChild(0).transform.rotation; //sets rotation of projectile
-            GameObject bullet = Instantiate(projectile, transform.GetChild(0).gameObject.transform.position, transform.GetChild(0).gameObject.transform.rotation) as GameObject; //instantiate in the scene
+            GameObject bullet = Instantiate(projectile, transform.GetChild(0).gameObject.transform.position, transform.rotation) as GameObject; //instantiate in the scene
             Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponentInChildren<Collider>()); //prevents arrow from colliding with crossbow and its siblings under the crossbow
             bullet.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * speedAffect, ForceMode.Impulse); //apply impulse to move
             Destroy(bullet, projectileLifeTime); //remove bullets after 3 seconds
@@ -56,5 +56,13 @@ public class crossbow : MonoBehaviour
             Debug.Log("Crossbow-> No projectile assigned");
         }
 
+    }
+
+    Vector3 SampleCurve(Vector3 start, Vector3 end, Vector3 control, float t)
+    {
+        Vector3 q1 = Vector3.Lerp(start, end, t);
+        Vector3 q2 = Vector3.Lerp(control, end, t);
+        Vector3 q3 = Vector3.Lerp(q1, q2, t);
+        return q3;
     }
 }
