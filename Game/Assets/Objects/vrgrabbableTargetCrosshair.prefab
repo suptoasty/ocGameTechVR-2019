@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 275334086755475485}
   - component: {fileID: 5338109999004215396}
   m_Layer: 9
-  m_Name: Crosshair
+  m_Name: vrgrabbableTargetCrosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ RectTransform:
   m_GameObject: {fileID: 6557559664098940050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6744, y: 1.6744, z: 1.6744}
   m_Children: []
   m_Father: {fileID: 275334086755475485}
   m_RootOrder: 0
