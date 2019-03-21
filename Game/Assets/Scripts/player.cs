@@ -10,6 +10,7 @@ public class player : MonoBehaviour
     void Start()
     {
         health = max_health;
+        Physics.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("Grabbable"));
     }
 
     // Update is called once per frame
