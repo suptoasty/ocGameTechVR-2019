@@ -17,6 +17,7 @@ public class sword : MonoBehaviour
 
     }
 
+    //this may seem wierd as damage is thought of as taken, but reflecting the metaphor of giving damage is easier to handle
     void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "Enemy")

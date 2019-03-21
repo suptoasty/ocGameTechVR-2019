@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float damage = 1.0f;
     public int max_health = 3;
     private int health = 3;
     public ParticleSystem death_particles = null;
@@ -28,6 +29,19 @@ public class Enemy : MonoBehaviour
                 Destroy(death_particles, death_particles_delay_time);
             }
             Destroy(this.gameObject, death_delay_time);
+        }
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        if (collisionInfo.gameObject.tag == "Player")
+        {
+            GameObject playerObj = collisionInfo.gameObject as GameObject;
+            player player = playerObj.GetComponent<player>() as player;
+            player.takeDamage(damage);
+
+            //need to get normal of collision and move along it to prevent consecutive hits
+            this.GetComponent<Rigidbody>().AddForce(collisionInfo.GetContact(0).normal, ForceMode.Impulse);
         }
     }
 
