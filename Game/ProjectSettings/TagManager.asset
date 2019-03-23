@@ -19,8 +19,8 @@ TagManager:
   - PostProcessing
   - Grabbable
   - Enemy
-  - 
-  - 
+  - PlayerWeapons
+  - Player
   - 
   - 
   - 

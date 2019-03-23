@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OVR;
+using OculusSampleFramework;
 
 public class arrow : MonoBehaviour
 {
+    private bool grabbed = false;
     // Start is called before the first frame update
     public float arrow_damage = 1.0f;
+    public float destroy_life = 0.0f;
     void Start()
     {
     }
@@ -13,6 +17,8 @@ public class arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DistanceGrabbable grabbable = GetComponent<DistanceGrabbable>() as DistanceGrabbable;
+        grabbed = grabbable.isGrabbed;
     }
 
     //this may seem wierd as damage is thought of as taken, but reflecting the metaphor of giving damage is easier to handle
@@ -27,7 +33,14 @@ public class arrow : MonoBehaviour
             Enemy enemy = enemyObj.GetComponent<Enemy>() as Enemy;
             enemy.takeDamage(damage);
             //get parent to kill object
-            Destroy(this.gameObject);
+            if (!grabbed)
+            {
+                Destroy(this.gameObject, destroy_life);
+            }
+            else
+            {
+                destroy_life = 2.0f;
+            }
         }
     }
 }

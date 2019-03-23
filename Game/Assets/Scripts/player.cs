@@ -11,6 +11,7 @@ public class player : MonoBehaviour
     {
         health = max_health;
         Physics.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("Grabbable"));
+        Physics.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("PlayerWeapons"));
     }
 
     // Update is called once per frame
