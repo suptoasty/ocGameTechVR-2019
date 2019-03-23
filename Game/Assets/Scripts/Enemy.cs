@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public ParticleSystem death_particles = null;
     public float death_delay_time = 1.0f; //for testing;
     public float death_particles_delay_time = 1.0f; //time before particles are destroyed
-
+    public GameObject targetPlayerController = null;
     void Start()
     {
         health = max_health;
@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
             }
             Destroy(this.gameObject, death_delay_time);
         }
+        stateMachine.Update();
     }
 
     void OnCollisionEnter(Collision collisionInfo)
@@ -45,9 +46,11 @@ public class Enemy : MonoBehaviour
             player.takeDamage(damage);
 
             //need to get normal of collision and move along it to prevent consecutive hits
-            this.GetComponent<Rigidbody>().AddForce(collisionInfo.GetContact(0).normal, ForceMode.Impulse);
+            //this.GetComponent<Rigidbody>().AddForce(collisionInfo.GetContact(0).normal, ForceMode.Impulse);
         }
     }
+
+    //switches to hunt player if conditions are met
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -61,7 +64,7 @@ public class Enemy : MonoBehaviour
             ray.direction = enemyToPlayerVec;
             if (Physics.Raycast(ray, out hit, 100.0f))
             {
-                if (hit.collider.tag == "PlayerBody")
+                if (hit.collider.tag == "PlayerBody" && stateMachine.currentState != EnemyHuntState.Singleton)
                 {
                     Debug.Log("EXTERMINATE-> " + hit.collider.gameObject.name);
                     stateMachine.changeState(EnemyHuntState.Singleton);
@@ -70,6 +73,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public GameObject getTarget()
+    {
+        return targetPlayerController;
+    }
     public void takeDamage(float damage)
     {
         int damage_taken = (int)damage;

@@ -33,6 +33,7 @@ public class EnemyPatrolState : State<Enemy>
     public override void EnterState(Enemy _owner)
     {
         owner = _owner;
+        Debug.Log("Enemy State-> Patrol");
     }
     public override void ExitState(Enemy _owner)
     {

@@ -23,15 +23,14 @@ namespace UStateMachine
             }
             currentState = _newState;
             currentState.EnterState(Owner);
-            if (currentState != null)
-            {
-                currentState.UpdateState(Owner);
-            }
         }
 
         public void Update()
         {
-
+            if (currentState != null)
+            {
+                currentState.UpdateState(Owner);
+            }
         }
 
     }

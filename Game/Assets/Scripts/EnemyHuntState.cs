@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UStateMachine;
+using UnityEngine.AI;
 
 //script for hunting the player after switching from State from EnemyPatrolState
 public class EnemyHuntState : State<Enemy>
@@ -32,15 +33,16 @@ public class EnemyHuntState : State<Enemy>
 
     public override void EnterState(Enemy _owner)
     {
-
+        Debug.Log("Enemy State-> Hunt");
+        _owner.GetComponent<NavMeshAgent>().enabled = true;
     }
     public override void ExitState(Enemy _owner)
     {
-
+        _owner.GetComponent<NavMeshAgent>().enabled = false;
     }
     public override void UpdateState(Enemy _owner)
     {
-        
+        _owner.GetComponent<NavMeshAgent>().SetDestination(_owner.getTarget().transform.position);
     }
 
 }
