@@ -38,7 +38,7 @@ public class EnemyPatrolState : State<Enemy>
         owner = _owner;
         Debug.Log("Enemy State-> Patrol");
         patrolPoints = owner.getLocations();
-        agent = owner.GetComponent()<NavMeshAgent>;
+        agent = owner.GetComponent<NavMeshAgent>();
     }
     public override void ExitState(Enemy _owner)
     {
@@ -49,16 +49,17 @@ public class EnemyPatrolState : State<Enemy>
     public override void UpdateState(Enemy _owner)
     {
         // Choose the next destination point when the agent gets
-            // close to the current one.
-            if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                GotoNextPoint();
+        // close to the current one.
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            GotoNextPoint();
     }
-   
-    function GotoNextPoint() {
+
+    function GotoNextPoint()
+    {
         // Returns if no points have been set up
         if (patrolPoints.Length == 0)
             return;
-            
+
         // Set the agent to go to the currently selected destination.
         agent.destination = patrolPoints[destPoint].position;
 
