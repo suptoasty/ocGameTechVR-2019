@@ -40,7 +40,7 @@ public class EnemyHuntState : State<Enemy>
     }
     public override void UpdateState(Enemy _owner)
     {
-
+        
     }
 
 }
