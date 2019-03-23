@@ -9,7 +9,6 @@ public class EnemyHuntState : State<Enemy>
 {
     //uses singleton pattern to ensure only one instance of script is returned
     private static EnemyHuntState _singleton;
-
     private EnemyHuntState()
     {
         if (_singleton != null)
@@ -46,4 +45,15 @@ public class EnemyHuntState : State<Enemy>
         _owner.GetComponent<NavMeshAgent>().SetDestination(_owner.getTarget().transform.position);
     }
 
+    public void shootAtPlayer()
+    {
+        Ray ray = new Ray();
+        ray.origin = this.transform.position;
+        ray.direction = targetPlayerController.transform.position - this.transform.position;
+
+        //random # gen for range
+
+        // shoot, calling from EnemyProjectile
+        
+    }
 }
