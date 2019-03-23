@@ -13,8 +13,10 @@ public class Enemy : MonoBehaviour
     public float death_delay_time = 1.0f; //for testing;
     public float death_particles_delay_time = 1.0f; //time before particles are destroyed
     public GameObject targetPlayerController = null;
+    public bool shielded_enemy = false;
     void Start()
     {
+        transform.GetChild(0).gameObject.SetActive(shielded_enemy);
         health = max_health;
         stateMachine = new StateMachine<Enemy>(this);
         stateMachine.changeState(EnemyPatrolState.Singleton); //set beggining state to EnemyPatolState
@@ -80,9 +82,18 @@ public class Enemy : MonoBehaviour
     }
     public void takeDamage(float damage)
     {
-        int damage_taken = (int)damage;
-        health -= damage_taken;
-        Debug.Log(name + " health-> " + getHealth());
+        if (Mathf.Cos(Time.time) > 0 && shielded_enemy)
+        {
+            int damage_taken = (int)damage;
+            health -= damage_taken;
+            Debug.Log(name + " health-> " + getHealth());
+        }
+        else if (shielded_enemy == false)
+        {
+            int damage_taken = (int)damage;
+            health -= damage_taken;
+            Debug.Log(name + " health-> " + getHealth());
+        }
     }
 
     public int getHealth()
