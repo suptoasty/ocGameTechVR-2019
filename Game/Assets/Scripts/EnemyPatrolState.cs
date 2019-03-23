@@ -41,6 +41,7 @@ public class EnemyPatrolState : State<Enemy>
         Debug.Log("Enemy State-> Patrol");
         patrolPoints = owner.getLocations();
         agent = owner.GetComponent<NavMeshAgent>();
+        GotoNextPoint();
     }
     public override void ExitState(Enemy _owner)
     {
