@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour
         if (collisionInfo.gameObject.tag == "Player")
         {
             GameObject playerObj = collisionInfo.gameObject as GameObject;
-            player player = playerObj.GetComponent<player>() as player;
-            player.takeDamage(damage);
+            playerHealth playerIns = playerObj.GetComponent<playerHealth>() as playerHealth;
+            playerIns.takeDamage(damage);
 
             //need to get normal of collision and move along it to prevent consecutive hits
             //this.GetComponent<Rigidbody>().AddForce(collisionInfo.GetContact(0).normal, ForceMode.Impulse);
@@ -53,18 +53,18 @@ public class Enemy : MonoBehaviour
     //switches to hunt player if conditions are met
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player") && stateMachine.currentState != EnemyHuntState.Singleton)
         {
             //makes ray hit for callbacks, makes ray, sets, its origin to this enemy, 
             //casts to the vec diference of player pos and enemy pos(this is the direction from enemy to player)
             RaycastHit hit;
             Ray ray = new Ray();
             ray.origin = this.transform.position;
-            Vector3 enemyToPlayerVec = collider.transform.position - this.transform.position;
-            ray.direction = enemyToPlayerVec;
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            ray.direction = targetPlayerController.transform.position - this.transform.position;
+            if (Physics.Raycast(ray, out hit, 1000.0f))
             {
-                if (hit.collider.tag == "PlayerBody" && stateMachine.currentState != EnemyHuntState.Singleton)
+                Debug.Log(hit.collider.name);
+                if (hit.collider.tag == "PlayerBody")
                 {
                     Debug.Log("EXTERMINATE-> " + hit.collider.gameObject.name);
                     stateMachine.changeState(EnemyHuntState.Singleton);

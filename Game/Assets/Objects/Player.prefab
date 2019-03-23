@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 2415653322515322213}
   - component: {fileID: 2415653322515322212}
   - component: {fileID: 1150519086}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: OVRPlayerController
   m_TagString: PlayerBody
   m_Icon: {fileID: 0}
@@ -4745,7 +4745,7 @@ GameObject:
   - component: {fileID: 2415653321781166875}
   - component: {fileID: 2415653321781166868}
   - component: {fileID: 2415653321781166869}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GrabManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7282,7 +7282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2415653322712124723}
   - component: {fileID: 2111302121436645973}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
