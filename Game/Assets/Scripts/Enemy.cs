@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
         health = max_health;
         stateMachine = new StateMachine<Enemy>(this);
         stateMachine.changeState(EnemyPatrolState.Singleton); //set beggining state to EnemyPatolState
+        Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
     }
 
     // Update is called once per frame
