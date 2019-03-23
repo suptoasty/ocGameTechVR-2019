@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public float death_particles_delay_time = 1.0f; //time before particles are destroyed
     public GameObject targetPlayerController = null;
     public bool shielded_enemy = false;
+    public Transform[] patrolPoints;
     void Start()
     {
         transform.GetChild(0).gameObject.SetActive(shielded_enemy);
@@ -154,5 +155,10 @@ public class Enemy : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public Transform[] getLocations()
+    {
+        return patrolPoints;
     }
 }
