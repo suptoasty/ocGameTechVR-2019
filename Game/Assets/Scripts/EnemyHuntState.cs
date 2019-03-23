@@ -42,6 +42,7 @@ public class EnemyHuntState : State<Enemy>
     }
     public override void UpdateState(Enemy _owner)
     {
+        _owner.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         _owner.GetComponent<NavMeshAgent>().SetDestination(_owner.getTarget().transform.position);
     }
 
