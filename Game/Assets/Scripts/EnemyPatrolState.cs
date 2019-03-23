@@ -9,7 +9,6 @@ public class EnemyPatrolState : State<Enemy>
     //uses singleton pattern to ensure only one instance of script is returned
     private static EnemyPatrolState _singleton;
     private Enemy owner = null;
-    private MeshCollider cone = null;
 
     private EnemyPatrolState()
     {
@@ -34,14 +33,9 @@ public class EnemyPatrolState : State<Enemy>
     public override void EnterState(Enemy _owner)
     {
         owner = _owner;
-        GameObject coneObj = GameObject.Find("sweepCast");
-        cone = coneObj.GetComponent<MeshCollider>() as MeshCollider;
-
-
     }
     public override void ExitState(Enemy _owner)
     {
-        cone = null;
         owner = null;
     }
 

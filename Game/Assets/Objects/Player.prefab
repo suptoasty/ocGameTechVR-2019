@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 197096459}
   m_Layer: 0
   m_Name: CustomHandRight
-  m_TagString: Untagged
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 910943784}
   m_Layer: 0
   m_Name: CustomHandLeft
-  m_TagString: Untagged
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 1150519086}
   m_Layer: 0
   m_Name: OVRPlayerController
-  m_TagString: Untagged
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -48,6 +48,27 @@ public class Enemy : MonoBehaviour
             this.GetComponent<Rigidbody>().AddForce(collisionInfo.GetContact(0).normal, ForceMode.Impulse);
         }
     }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            //makes ray hit for callbacks, makes ray, sets, its origin to this enemy, 
+            //casts to the vec diference of player pos and enemy pos(this is the direction from enemy to player)
+            RaycastHit hit;
+            Ray ray = new Ray();
+            ray.origin = this.transform.position;
+            Vector3 enemyToPlayerVec = collider.transform.position - this.transform.position;
+            ray.direction = enemyToPlayerVec;
+            if (Physics.Raycast(ray, out hit, 100.0f))
+            {
+                if (hit.collider.tag == "PlayerBody")
+                {
+                    Debug.Log("EXTERMINATE-> " + hit.collider.gameObject.name);
+                    stateMachine.changeState(EnemyHuntState.Singleton);
+                }
+            }
+        }
+    }
 
     public void takeDamage(float damage)
     {
