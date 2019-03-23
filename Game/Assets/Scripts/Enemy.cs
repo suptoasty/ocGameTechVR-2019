@@ -64,7 +64,54 @@ public class Enemy : MonoBehaviour
             Ray ray = new Ray();
             ray.origin = this.transform.position;
             ray.direction = targetPlayerController.transform.position - this.transform.position;
-            if (Physics.Raycast(ray, out hit, 1000.0f))
+            if (Physics.Raycast(ray, out hit, float.PositiveInfinity))
+            {
+                Debug.Log(hit.collider.name);
+                if (hit.collider.tag == "PlayerBody")
+                {
+                    Debug.Log("EXTERMINATE-> " + hit.collider.gameObject.name);
+                    stateMachine.changeState(EnemyHuntState.Singleton);
+                }
+            }
+        }
+    }
+
+    void OnTriggerStay(Collider collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player") && stateMachine.currentState != EnemyHuntState.Singleton)
+        {
+            Debug.Log("Player Sitting IN view?");
+            //makes ray hit for callbacks, makes ray, sets, its origin to this enemy, 
+            //casts to the vec diference of player pos and enemy pos(this is the direction from enemy to player)
+            RaycastHit hit;
+            Ray ray = new Ray();
+            ray.origin = this.transform.position;
+            ray.direction = targetPlayerController.transform.position - this.transform.position;
+            if (Physics.Raycast(ray, out hit, float.PositiveInfinity))
+            {
+                Debug.Log(hit.collider.name);
+                Debug.Log(ray);
+                if (hit.collider.tag == "PlayerBody")
+                {
+                    Debug.Log("EXTERMINATE-> " + hit.collider.gameObject.name);
+                    stateMachine.changeState(EnemyHuntState.Singleton);
+                }
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player") && stateMachine.currentState != EnemyHuntState.Singleton)
+        {
+            Debug.Log("Player Might Be in Sight");
+            //makes ray hit for callbacks, makes ray, sets, its origin to this enemy, 
+            //casts to the vec diference of player pos and enemy pos(this is the direction from enemy to player)
+            RaycastHit hit;
+            Ray ray = new Ray();
+            ray.origin = this.transform.position;
+            ray.direction = targetPlayerController.transform.position - this.transform.position;
+            if (Physics.Raycast(ray, out hit, float.PositiveInfinity))
             {
                 Debug.Log(hit.collider.name);
                 if (hit.collider.tag == "PlayerBody")

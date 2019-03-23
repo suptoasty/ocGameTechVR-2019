@@ -261,6 +261,7 @@ MonoBehaviour:
   death_delay_time: 1
   death_particles_delay_time: 1
   targetPlayerController: {fileID: 0}
+  shielded_enemy: 0
 --- !u!1 &8254194059618462991
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1836223263058414380}
   - component: {fileID: 3364716010857874798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sweepCast
   m_TagString: EnemyShapeCast
   m_Icon: {fileID: 0}
