@@ -11,6 +11,8 @@ public class EnemyPatrolState : State<Enemy>
     private static EnemyPatrolState _singleton;
     private Enemy owner = null;
     private Transform[] patrolPoints;
+    private int destPoint = 0;
+
     private NavMeshAgent agent;
 
     private EnemyPatrolState()
@@ -54,7 +56,7 @@ public class EnemyPatrolState : State<Enemy>
             GotoNextPoint();
     }
 
-    function GotoNextPoint()
+    public void GotoNextPoint()
     {
         // Returns if no points have been set up
         if (patrolPoints.Length == 0)
