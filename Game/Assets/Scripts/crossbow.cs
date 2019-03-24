@@ -46,7 +46,8 @@ public class crossbow : MonoBehaviour
         {
             //a child is used for positions and rotations rather than the crossbow
             projectile.transform.localScale = transform.localScale / 2; //scale projectiles to proportional size of the crossbow...still a little off 
-            Quaternion projRot = Quaternion.Euler(Random.Range(45, 145), 90, Random.Range(80, 100)); //fix rotation of arrow
+            //Quaternion projRot = Quaternion.Euler(Random.Range(45, 145), 90, Random.Range(80, 100)); //fix rotation of arrow
+            Quaternion projRot = Quaternion.Euler(transform.eulerAngles.y, transform.eulerAngles.z, transform.eulerAngles.x);
             GameObject bullet = Instantiate(projectile, transform.GetChild(0).gameObject.transform.position, projRot) as GameObject; //instantiate in the scene
             Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponentInChildren<Collider>()); //prevents arrow from colliding with crossbow and its siblings under the crossbow
             bullet.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * speedAffect, ForceMode.Impulse); //apply impulse to move
