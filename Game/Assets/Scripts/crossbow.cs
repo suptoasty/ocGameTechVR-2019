@@ -10,7 +10,6 @@ public class crossbow : MonoBehaviour
     // public float distance = 200.0f; //max distance for a hit
     public float speedAffect = 10.0f;
     public int max_arrow_inscene = 2;
-    public float arrowScale = 0.3f;
     // public Camera fpsCamera; //must be set to player camera.....might look at changing to ray from hand
 
     // public ParticleSystem boltImpactSmoke;
@@ -46,10 +45,8 @@ public class crossbow : MonoBehaviour
         if (projectile)
         {
             //a child is used for positions and rotations rather than the crossbow
-            projectile.transform.localScale = transform.localScale * arrowScale; //scale projectiles to proportional size of the crossbow...still a little off 
-            //Quaternion projRot = Quaternion.Euler(Random.Range(45, 145), 90, Random.Range(80, 100)); //fix rotation of arrow
-            Quaternion projRot = Quaternion.LookRotation(transform.forward, transform.forward); //fix rotation of arrow based on crossbow rotation
-
+            projectile.transform.localScale = transform.localScale; //scale projectiles to proportional size of the crossbow...still a little off 
+            Quaternion projRot = Quaternion.Euler(Random.Range(45, 145), 90, Random.Range(80, 100)); //fix rotation of arrow
             GameObject bullet = Instantiate(projectile, transform.GetChild(0).gameObject.transform.position, projRot) as GameObject; //instantiate in the scene
             Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponentInChildren<Collider>()); //prevents arrow from colliding with crossbow and its siblings under the crossbow
             bullet.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * speedAffect, ForceMode.Impulse); //apply impulse to move

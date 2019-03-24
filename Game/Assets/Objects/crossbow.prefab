@@ -208,7 +208,6 @@ MonoBehaviour:
   damage: 1
   speedAffect: 10
   max_arrow_inscene: 2
-  arrowScale: 0.3
   projectile: {fileID: 2453603136477940049, guid: 8256eb50cb30c47468b1ac94adc794d9,
     type: 3}
   projectileLifeTime: 2
