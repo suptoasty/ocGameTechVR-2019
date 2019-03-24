@@ -208,7 +208,7 @@ MonoBehaviour:
   damage: 1
   speedAffect: 10
   max_arrow_inscene: 2
-  projectile: {fileID: 2453603136477940049, guid: 8256eb50cb30c47468b1ac94adc794d9,
+  projectile: {fileID: 8663556919130379020, guid: 881858200d049ab4bbcb3d9267456d44,
     type: 3}
   projectileLifeTime: 2
 --- !u!1 &4036663493234575611
@@ -381,16 +381,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2488642056046837429}
     m_Modifications:
-    - target: {fileID: 3797473428025861391, guid: 476321a7b5275384d8d6a9f0e8d4ea78,
-        type: 3}
-      propertyPath: m_Name
-      value: Crosshair
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797473428025861391, guid: 476321a7b5275384d8d6a9f0e8d4ea78,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 275334086755475485, guid: 476321a7b5275384d8d6a9f0e8d4ea78,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -495,6 +485,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797473428025861391, guid: 476321a7b5275384d8d6a9f0e8d4ea78,
+        type: 3}
+      propertyPath: m_Name
+      value: Crosshair
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797473428025861391, guid: 476321a7b5275384d8d6a9f0e8d4ea78,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8541025155146921439, guid: 476321a7b5275384d8d6a9f0e8d4ea78,
         type: 3}

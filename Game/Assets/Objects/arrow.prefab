@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2453603136477940049}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.0000000033347787, y: 0, z: -0.000000008654693}
-  m_LocalScale: {x: 0.08538292, y: 0.08538292, z: 0.08538292}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
   m_Children:
   - {fileID: 8346689798223765867}
   - {fileID: 1634925618582783897}
@@ -182,18 +182,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6928417269293112608}
     m_Modifications:
-    - target: {fileID: 100000, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
-      propertyPath: m_Name
-      value: bolt
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.7105e-10
@@ -249,6 +237,18 @@ PrefabInstance:
     - target: {fileID: 400000, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.52735
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
+      propertyPath: m_Name
+      value: bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: e80f86ed9af09d94bab534f8b33a6055, type: 3}
       propertyPath: m_Materials.Array.data[0]
