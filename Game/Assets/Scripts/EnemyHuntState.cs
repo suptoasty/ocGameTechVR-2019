@@ -47,13 +47,13 @@ public class EnemyHuntState : State<Enemy>
 
     public void shootAtPlayer()
     {
-        Ray ray = new Ray();
-        ray.origin = this.transform.position;
-        ray.direction = targetPlayerController.transform.position - this.transform.position;
+        // Ray ray = new Ray();
+        // ray.origin = this.transform.position;
+        // ray.direction = targetPlayerController.transform.position - this.transform.position;
 
         //random # gen for range
 
         // shoot, calling from EnemyProjectile
-        
+
     }
 }
